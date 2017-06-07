@@ -1,0 +1,22 @@
+{
+  "name": "gnarvy",
+  "version": "0.0.4",
+  "description": "react native integration test library a-la Cavy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": ". babelify.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/gnarbox1/gnarvy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/gnarbox1/gnarvy#readme",
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-react-native": "^1.9.2",
+    "fs": "0.0.1-security"
+  }
+}
