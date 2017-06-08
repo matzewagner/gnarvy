@@ -1,6 +1,6 @@
 {
   "name": "gnarvy",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "react native integration test library a-la Cavy",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-react-native": "^1.9.2",
-    "fs": "0.0.1-security"
+    "react-native-fetch-blob": "^0.10.5"
   }
 }
