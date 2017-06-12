@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { INTEGRATION_TESTING } from '../../../localConfig.js'
 
 import TestHookStore from './TestHookStore';
 
@@ -74,5 +75,5 @@ export default function hook(WrappedComponent) {
     testHooks: PropTypes.instanceOf(TestHookStore)
   }
 
-  return wrapperComponent;
+  return INTEGRATION_TESTING ? wrapperComponent : WrappedComponent;
 }

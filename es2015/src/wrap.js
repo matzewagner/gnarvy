@@ -1,4 +1,5 @@
 import React, { createClass } from 'react';
+import { INTEGRATION_TESTING } from '../../../localConfig.js'
 
 // Public: Wrap a stateless (purely functional) component in a non-stateless
 // component so that a `ref` can be added.
@@ -25,6 +26,8 @@ import React, { createClass } from 'react';
 //     }
 //   }
 export default function wrap(statelessComponent) {
+  if (!INTEGRATION_TESTING) return statelessComponent
+
   var reactClass = {}
 
   Object.keys(statelessComponent).forEach(function (key) {
