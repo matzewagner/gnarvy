@@ -1,3 +1,4 @@
+import { duplicateTestComponents } from '../../../testConfig.js'
 // Public: A TestHookStore stores flattened references to UI components in your
 // app that you want to interact with as part of your integration tests.
 //
@@ -19,7 +20,7 @@ export default class TestHookStore {
   //
   // Returns undefined.
   add(identifier, component) {
-    if (this.hooks[identifier]) {
+    if (this.hooks[identifier] && !duplicateTestComponents[identifier]) {
       console.warn(`A component for ${identifier} has already been registered. Overwriting.`);
     }
 

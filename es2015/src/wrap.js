@@ -1,5 +1,5 @@
 import React, { createClass } from 'react';
-import { INTEGRATION_TESTING } from '../../../localConfig.js'
+import { INTEGRATION_TESTING } from '../../../testConfig.js'
 
 // Public: Wrap a stateless (purely functional) component in a non-stateless
 // component so that a `ref` can be added.

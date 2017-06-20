@@ -1,4 +1,4 @@
-import { INTEGRATION_TESTING } from '../../../localConfig.js'
+import { INTEGRATION_TESTING } from '../../../testConfig.js'
 
 export default gnarHook = function(hookName, refArg /* string or function */) {
     if (!INTEGRATION_TESTING && !refArg) { return }

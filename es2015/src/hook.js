@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { INTEGRATION_TESTING } from '../../../localConfig.js'
+import { INTEGRATION_TESTING } from '../../../testConfig.js'
 
 import TestHookStore from './TestHookStore';
 
