@@ -12,11 +12,11 @@
   ```javascript
   <MyComponent ref={gnarHook.bind(this)('MyRef')} />
   ```
-  Note that for functional (stateless) components, where props get passed in as a function argument, you will still need to use the regular generateTestHook function
+  Note that for functional (stateless) components, where props get passed in as a function argument, you will need to supply them as the 3rd function argument, and you can omit the binding.
   ```javascript
   const MyFunctionalComponent = (props) => {
     return (
-      <View ref={props.generateTestHook('MyRef') />
+      <View ref={gnarHook('MyRef', null, props) />
     )
   }
   ```

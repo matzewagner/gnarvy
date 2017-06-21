@@ -1,6 +1,6 @@
 import { INTEGRATION_TESTING } from '../../../testConfig.js'
 
-export default gnarHook = function(hookName, refArg /* string or function */) {
+export default gnarHook = function(hookName, refArg, props /* string or function */) {
     if (!INTEGRATION_TESTING && !refArg) { return }
     return (
 				ref => {
@@ -12,8 +12,8 @@ export default gnarHook = function(hookName, refArg /* string or function */) {
 					} 
 					
 					if (INTEGRATION_TESTING) {
-							if (!this.props) return console.error('Props were not supplied')
-							const { generateTestHook } = this.props
+							if (!this.props && !props) return console.error('Props were not supplied')
+							const { generateTestHook } = this.props || props
 							if (!generateTestHook) return console.error(`Can't find generateTestHook()`)
 							generateTestHook(hookName)(ref)
 					}
