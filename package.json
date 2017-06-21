@@ -1,6 +1,6 @@
 {
   "name": "gnarvy",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "react native integration test library a-la Cavy",
   "main": "index.js",
   "scripts": {

@@ -4,7 +4,26 @@
 **Gnarvy** is a cross-platform integration test framework for React Native. It is built on top of Cavy by
 [Pixie Labs](http://pixielabs.io) but includes additional features.
 
-## How does it work?
+
+## Gnarvy specifics:
+* The `hook()` and `wrap()` methods know wether `INTEGRATION_TESTING` is enabled and if not, they will simply return the unaltered component. In order for this to work, you need to export `INTEGRATION_TESTING` as `true` or `false` from your *testConfig.js* file in the top-level of Yardsale.
+
+* In addition to Cavy's generateTestHook function, Gnarvy uses **gnarHook**, which can handles cases where the component has a ref on its own, prior to adding testing functionality. If `INTEGRATION_TESTING` is enabled, gnarHook will run the generateTestHook function under the hood. In order for this to work, gnarHook needs to bind to its component: 
+  ```javascript
+  <MyComponent ref={gnarHook.bind(this)('MyRef')} />
+  ```
+  Note that for functional (stateless) components, where props get passed in as a function argument, you will still need to use the regular generateTestHook function
+  ```javascript
+  const MyFunctionalComponent = (props) => {
+    return (
+      <View ref={props.generateTestHook('MyRef') />
+    )
+  }
+  ```
+
+## From Cavy:
+
+### How does it work?
 
 Gnarvy (ab)uses React `ref` generating functions to give you the ability to refer
 to, and simulate actions upon, deeply nested components within your
