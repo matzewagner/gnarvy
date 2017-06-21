@@ -6,7 +6,27 @@
 
 
 ## Gnarvy specifics:
-* The `hook()` and `wrap()` methods know wether `INTEGRATION_TESTING` is enabled and if not, they will simply return the unaltered component. In order for this to work, you need to export `INTEGRATION_TESTING` as `true` or `false` from your *testConfig.js* file in the top-level of Yardsale.
+* Gnarvy relies on information that inside of *testConfig.js* at the top level of Yardsale. At bare minimum, this file needs to export the INTEGRATION_TESTING flag. It also includes an array of the tests that we want to run, as well as an array of refs to components, which are allowed to re-render as duplicates. Example: 
+  ```javascript
+      'use strict'
+      import { PathToCellular } from './app/gnarvyTests'
+      
+      const INTEGRATION_TESTING      = true
+      const tests                    = [PathToCellular]
+      const duplicateTestComponents  = ['RightButton']
+      const Test_SSID                = 'NetworkName'
+      const wifiAccess               = 'NetworkAccess'
+
+      export {
+        INTEGRATION_TESTING,
+        tests,
+        duplicateTestComponents,
+        wifiAccess,
+        Test_SSID,
+      }
+  ```
+
+* The `hook()` and `wrap()` methods know wether `INTEGRATION_TESTING` is enabled and if not, they will simply return the unaltered component.
 
 * In addition to Cavy's generateTestHook function, Gnarvy uses **gnarHook**, which can handles cases where the component has a ref on its own, prior to adding testing functionality. If `INTEGRATION_TESTING` is enabled, gnarHook will run the generateTestHook function under the hood. In order for this to work, gnarHook needs to bind to its component: 
   ```javascript
